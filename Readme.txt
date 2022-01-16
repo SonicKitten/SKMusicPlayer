@@ -1,0 +1,1 @@
+This class is a singleton wrapper around AVPlayer. It plays audio files from URLs, both locally and remotely. The main reason I made it a singeton is so that only one AVPlayer can be trying to play at a time. As a result of being a singlton, it can be called from anywhere in your codebase very easily.
