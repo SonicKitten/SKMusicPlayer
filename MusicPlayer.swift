@@ -17,12 +17,6 @@ import AVFoundation
     case stopped = 3
 }
 
-extension Notification.Name {
-    static let playerDidStart = Notification.Name("playerDidStart")
-    static let playerIsLoading = Notification.Name("playerIsLoading")
-    static let playerDidPause = Notification.Name("playerDidPause")
-}
-
 class MusicPlayer: NSObject {
     
     static let shared = MusicPlayer()
@@ -84,16 +78,13 @@ class MusicPlayer: NSObject {
                 }
                 else {
                     print("playback paused")
-                    NotificationCenter.default.post(name: .playerDidPause, object: nil)
                     self?.playState = .paused
                 }
             }
             else if player.timeControlStatus == AVPlayer.TimeControlStatus.playing {
-                NotificationCenter.default.post(name: .playerDidStart, object: nil)
                 self?.playState = .playing
             }
             else if player.timeControlStatus == AVPlayer.TimeControlStatus.waitingToPlayAtSpecifiedRate {
-                NotificationCenter.default.post(name: .playerIsLoading, object: nil)
                 self?.playState = .loading
             }
         })
