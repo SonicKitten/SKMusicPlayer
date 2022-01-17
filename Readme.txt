@@ -8,7 +8,7 @@ your app starts, before playing audio. Setup the audio session like this:
 
 let audioSession = AVAudioSession.sharedInstance()
 do {
-	try audioSession.setCategory(.playback)
+    try audioSession.setCategory(.playback)
 } 
 catch {
     print("Setting category to AVAudioSessionCategoryPlayback failed.")
